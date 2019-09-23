@@ -1,24 +1,39 @@
 <template>
-  <div class="Red">
-      迪丽肉巴
-      <router-link to="/login"><input type="button" value="登录"></router-link>
-      <router-view></router-view>
+  <div>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 export default {
-    data(){
-        return{
-            message: "啊嘞啊嘞"
-        }
-    }
-}
+  data() {
+    return {};
+  }
+};
 </script>
 
 <style>
-    .Red{
-        color: red;
-    }
-
+/* 字体图标 */
+@import url("http://at.alicdn.com/t/font_1426139_h6vn3jbl5q.css");
+@import url("../node_modules/vant/lib/index.css");
+/* 其他样式 */
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  color: indianred;
+}
+a:hover {
+  text-emphasis: none;
+}
+ul,
+li,
+ol {
+  list-style: none;
+}
+i,
+em {
+  font-style: normal;
+}
 </style>
