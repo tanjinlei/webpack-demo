@@ -21,6 +21,7 @@ axios.defaults.baseURL = "http://localhost:3000"
 
 const routes = [
     { path:"/login", component:Login },
+    { path:"/", component:Login },
     { path:"/register", component:Register },
 
     // { path:"/app", component:App },

@@ -15,6 +15,7 @@ export default {
 <style>
 /* 字体图标 */
 @import url("http://at.alicdn.com/t/font_1426139_h6vn3jbl5q.css");
+/* ui组件 */
 @import url("../node_modules/vant/lib/index.css");
 /* 其他样式 */
 * {
