@@ -19,7 +19,7 @@
       ></AuthInput>
       <AuthInput
         placeholder="密码"
-        type="password" 
+        type="password"
         v-model="form.password"
         :rule="/^[0-9a-zA-Z]{3,12}$/"
         err_message="密码格式不对"
@@ -30,7 +30,7 @@
       <router-link to="/register">点击这里注册</router-link>
     </P>
     <!-- <button @click="handleSubmit">登录按钮</button> -->
-    <AuthButton text="登录" @click="handleSubmit"/>
+    <AuthButton text="登录" @click="handleSubmit" />
   </div>
 </template>
 
@@ -39,7 +39,7 @@
 import AuthInput from "@/components/AuthInput";
 import AuthButton from "@/components/AuthButton";
 //导入请求库
-import axios from "axios"
+import axios from "axios";
 export default {
   data() {
     return {
@@ -65,16 +65,21 @@ export default {
       // console.log(this.form);
       this.$axios({
         // url:"http://localhost:3000/login",
-        url:"/login",  //main.js里面有设置
-        method:"POST",  // method相当于type
-        data:this.form
+        url: "/login", //main.js里面有设置
+        method: "POST", // method相当于type
+        data: this.form
         // then的回调函数相当于success
-      }).then(res=>{
+      }).then(res => {
         // console.log(res);
-        const {message} = res.data;
-        if(message === "登录成功"){
-          // 跳转
-          this.$router.push("/")
+        const { message, data } = res.data;
+        if (message === "登录成功") {
+          // 把token和id保存到本地 (localStorage:本地存储，js存储对象)
+          // localStorage.setItem:获取本地存储中的值
+          localStorage.setItem("token",data.token);
+          localStorage.setItem("user_id",data.user.id);
+          
+          // 跳转到首页
+          this.$router.push("/personal");
         }
       });
     }
@@ -102,15 +107,15 @@ export default {
     color: #d81e06;
   }
 }
-.input{
-  input{
+.input {
+  input {
     margin-bottom: 20px;
   }
 }
-.tips{
-  text-align:right;
+.tips {
+  text-align: right;
   margin-bottom: 20px;
-  a{
+  a {
     color: #3385ff;
   }
 }
