@@ -1,10 +1,16 @@
 import Vue from "vue";
 import App from "./App.vue";
-// import Router from "vue-router"
 import Login from "./Login.vue";
 import Register from "@/pages/Register";
 import VueRouter from "vue-router";
 import Personal from "@/pages/Personal";
+import EditProfile from "@/pages/EditProfile"
+import UserFollow from "@/pages/UserFollow"
+import UserComment from "@/pages/UserComment"
+import Index from "@/pages/Index"
+
+
+
 // 导入vant-ui组件
 import Vant from "vant";
 // toast（登录-弹框_提示框-拦截）
@@ -28,7 +34,12 @@ const routes = [
     // { path:"/", component:Login },
     { path:"/register", component:Register },
     { path:"/personal", component:Personal },
-    // { path:"/app", component:App },
+    { path:"/edit_profile", component:EditProfile },
+    { path:"/personal", component:Personal },
+    { path:"/edit_profile", component:EditProfile },
+    { path:"/user_follow", component:UserFollow },
+    { path:"/user_comment", component:UserComment },
+    { path:"/", component:Index },
 
 ]
 const router = new VueRouter({
@@ -44,7 +55,7 @@ router.beforeEach((to, from, next) => {
     const hasToken = localStorage.getItem("token");
 
     // 判断是否是需要登陆权限的页面
-    if(to.path === "/personal"){
+    if(to.path === "/personal" || to.path === "/edit_profile" ){
         // 判断本地是否有token
         if(hasToken){
             // 正常跳转

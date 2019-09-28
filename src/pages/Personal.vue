@@ -1,5 +1,6 @@
 <template>
   <div>
+    <router-link to="/edit_profile">
     <div class="profile">
       <!-- <img
         :src="$axios.defaults.baseURL + profile.head_img"
@@ -15,13 +16,21 @@
       </div>
       <span class="iconfont iconjiantou1"></span>
     </div>
+       </router-link>
     <hr>
     <!-- CellBar组件 -->
+    <router-link to="/user_follow">
     <CellBar label="我的关注" text="关注的用户" />
+    </router-link>
+    <router-link to="user_comment">
     <CellBar label="我的跟帖" text="跟帖 / 回复" />
-    <CellBar label="我的关注" text="视频 / 文章" />
+    </router-link>
+    <router-link to="/">
+    <CellBar label="首页" text="首页" />
+    </router-link>
     <CellBar label="退出" @click="handleLogin"/>
   </div>
+
 </template>
 
 <script>
