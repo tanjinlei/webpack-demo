@@ -8,6 +8,7 @@ import EditProfile from "@/pages/EditProfile"
 import UserFollow from "@/pages/UserFollow"
 import UserComment from "@/pages/UserComment"
 import Index from "@/pages/Index"
+import PostDetail from "@/pages/PostDetail"
 
 
 
@@ -40,6 +41,8 @@ const routes = [
     { path:"/user_follow", component:UserFollow },
     { path:"/user_comment", component:UserComment },
     { path:"/", component:Index },
+    { path:"/post_detail/:id", component:PostDetail },
+
 
 ]
 const router = new VueRouter({
